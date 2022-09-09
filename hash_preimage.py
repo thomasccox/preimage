@@ -19,26 +19,38 @@ def hash_preimage(target_string):
             trim += target_string[i]
 
     byte_sized = ceil(len(target_string)/8)
-    #print(byte_sized)
-    byte = ""
+    remain = 7 - len(target_string)%8
+    finalBits = ""
 
-
-    while byte != trim:
+    while finalBits != target_string:
+        bits = ""
+        finalBits = ""
         a = os.urandom(64)
         hash_a = hashlib.sha256(a).digest()
-        byte = ""
-        for i in range(32-byte_sized, 32):
-            str = bin(hash_a[i])
-            #print(check)
-            for j in range(2,len(str)):
-                byte += str[j]
-        #print(byte)
-        #print(target_string)
 
-    if len(byte) < len(target_string):
-        lead = ""
-        for j in range(len(target_string) - len(byte)):
-            lead += '0'
-        byte = lead + byte
-    #print(byte)
+        for i in range(len(hash_a)):
+            str = bin(hash_a[i])
+            '''
+            if i == 32 - byte_sized:
+                dif = 8 - len(str)
+                start = remain - dif
+                if start > 0:
+                    for j in range(2+start, len(str)):
+                        byte += str[j]
+            #print(check)
+            '''
+            if len(str) < 10:
+                #print(str)
+                for j in range (10-len(str)):
+                    bits+='0'
+                    #print(bits)
+            for k in range(2,len(str)):
+                bits += str[k]
+        for i in range(len(bits)-len(target_string), len(bits)):
+            finalBits += bits[i];
+            #print(bits)
+        #print(target_string)
+        #print(finalBits)
+
+
     return( a )
