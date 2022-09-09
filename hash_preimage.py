@@ -34,11 +34,12 @@ def hash_preimage(target_string):
                 byte += str[j]
         #print(byte)
         #print(target_string)
-
+    '''
     if len(byte) < len(target_string):
         lead = ""
         for j in range(len(target_string) - len(byte)):
             lead += '0'
         byte = lead + byte
     #print(byte)
+    '''
     return( a )
