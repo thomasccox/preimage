@@ -41,4 +41,4 @@ def hash_preimage(target_string):
             lead += '0'
         byte = lead + byte
     #print(byte)
-    return( byte )
+    return( a )
