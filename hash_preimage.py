@@ -19,7 +19,7 @@ def hash_preimage(target_string):
             trim += target_string[i]
 
     byte_sized = ceil(len(target_string)/8)
-    print(byte_sized)
+    #print(byte_sized)
     byte = ""
 
 
@@ -32,13 +32,13 @@ def hash_preimage(target_string):
             #print(check)
             for j in range(2,len(str)):
                 byte += str[j]
-        print(byte)
-        print(target_string)
+        #print(byte)
+        #print(target_string)
 
     if len(byte) < len(target_string):
         lead = ""
         for j in range(len(target_string) - len(byte)):
             lead += '0'
         byte = lead + byte
-    print(byte)
+    #print(byte)
     return( byte )
