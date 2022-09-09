@@ -32,8 +32,8 @@ def hash_preimage(target_string):
             #print(check)
             for j in range(2,len(str)):
                 byte += str[j]
-        print(byte)
-        print(target_string)
+        #print(byte)
+        #print(target_string)
     '''
     if len(byte) < len(target_string):
         lead = ""
